@@ -39,20 +39,29 @@ inspect(model)
 
 # manually choice the objective
 
-model1 <- apriori(tranx, parameter = list(sup=.0001, conf= 1, target="rules",
-                                          minlen= 2), appearance = list(rhs= "Cake"))
+model_coffee <- apriori(tranx, parameter = list(sup=.001, conf= 1, target="rules",
+                                          minlen= 2), appearance = list(rhs= "Coffee"))
 
 inspect(model1)
 inspect(model1[1:10])
 
-# creating some useful visulization
+# creating some useful visulization for model
 
 library(arulesViz)
+                   
 plot(model)
 plot(model, method = "grouped", control = list(k = 5))
 plot(model, method="graph", control=list(type="items"))
 plot(model, method="paracoord",  control=list(alpha=.5, reorder=TRUE))
 plot(model,measure=c("support","lift"),shading="confidence",interactive=T)
+                   
+# creating some useful visulization for model_coffee
+
+plot(model_coffee)
+plot(model_coffee, method = "grouped", control = list(k = 5))
+plot(model_coffee, method="graph", control=list(type="items"))
+plot(model_coffee, method="paracoord",  control=list(alpha=.5, reorder=TRUE))
+plot(model_coffee, measure=c("support","lift"),shading="confidence",interactive=T)
 
 # top 10 products
 
