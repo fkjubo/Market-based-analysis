@@ -39,7 +39,7 @@ inspect(model)
 
 # manually choice the objective
 
-model_coffee <- apriori(tranx, parameter = list(sup=.001, conf= 1, target="rules",
+model_coffee <- apriori(tranx, parameter = list(sup=.001, conf= .7, target="rules",
                                           minlen= 2), appearance = list(rhs= "Coffee"))
 
 inspect(model1)
